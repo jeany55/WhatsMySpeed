@@ -60,7 +60,7 @@ function addon:OnInitialize()
   self.db = LibStub("AceDB-3.0"):New(ADDON_NAME .. "DB")
 
   if not self.db.realm.config then
-    self.db.realm.config = { frameLocked = false, showFrame = true, pollingInterval = 1 }
+    self.db.realm.config = { frameLocked = false, showFrame = true, pollingInterval = 0.5 }
   end
 
   speedFrame = CreateFrame("Frame", "WhatsMySpeedFrame", UIParent, "BackdropTemplate")
