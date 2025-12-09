@@ -38,7 +38,7 @@ local function updateSpeed()
 
   local newX, newY = UnitPosition("player")
 
-  if x and y and newX ~= x and newY ~= y then
+  if x and y and newX and newY and newX ~= x and newY ~= y then
     if not unitSpeed or unitSpeed == 0 then
       -- Dragonriding or some other movement method where GetUnitSpeed returns 0
       currentSpeed = calculateDragonridingSpeed(newX, newY)
