@@ -48,24 +48,12 @@ local function updateSpeed()
     local speedAsPercentage = convertSpeedToPercentage(currentSpeed)
 
     speedFrame.caption:SetText(string.format("%d%%", speedAsPercentage))
-    -- print("o shit we moving bro")
-    -- local distance = math.sqrt((newX - x) ^ 2 + (newY - y) ^ 2)
-    -- local speed = distance / delta -- speed in yards per second
-    -- currentSpeed = math.floor((speed / 7) * 100 + 0.5) -- convert to percentage of base movement speed
   else
     speedFrame.caption:SetText(L["no_speed"])
   end
 
   x = newX
   y = newY
-
-  -- / BASE_MOVEMENT_SPEED * 100
-
-  local speed = 0
-  -- print(currentSpeed)
-  -- print(runSpeed)
-  -- print(flightSpeed)
-
 end
 
 function addon:OnInitialize()
