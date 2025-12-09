@@ -1,0 +1,43 @@
+# This is a basic workflow to help you get started with Actions
+
+name: 🚀 Release
+
+# Controls when the workflow will run
+on:
+  # Run manually only
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: Remove unneeded files
+        run: |
+          rm -rf ./.git
+          rm -rf ./.github
+          rm .gitignore
+          rm .lua-style
+          rm LICENSE
+          rm README.md
+
+      # Runs a set of commands using the runners shell
+      - name: Make zip
+        run: |
+          mkdir WhatsMySpeed
+          mv * WhatsMySpeed || true
+
+          zip -r "WhatsMySpeed.zip" ./
+
+      - name: Create release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          artifacts: WhatsMySpeed.zip
+          token: ${{ secrets.ACCESS_TOKEN_GIT }}
+          tag: "release"
+        
