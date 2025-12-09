@@ -1,0 +1,14 @@
+## Interface: 30404
+## Title: WhatsMySpeed
+## Notes: A simple addon to track how fast you're going
+## Author: Jeany
+## Version: 1.0.0
+## RequiredDeps:
+## X-Curse-Project-ID: 1299016
+## SavedVariables: WhatsMySpeedDB
+## SavedVariablesPerCharacter:
+
+embeds.xml
+
+Locales\Locales.xml
+Core.lua
